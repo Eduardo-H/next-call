@@ -6,7 +6,7 @@ import { Button, Heading, MultiStep, Text } from '@ignite-ui/react'
 import { AuthError, ConnectBox, ConnectItem } from './styles'
 import { Container, Header } from '../styles'
 
-export default function Register() {
+export default function ConnectCalendar() {
   const session = useSession()
   const router = useRouter()
 
