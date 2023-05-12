@@ -34,6 +34,20 @@ export const TimePicker = styled('div', {
   bottom: 0,
   right: 0,
   width: 280,
+
+  '&::-webkit-scrollbar': {
+    width: '0.875rem',
+  },
+
+  '&::-webkit-scrollbar-track': {
+    background: '$gray800',
+  },
+
+  '&::-webkit-scrollbar-thumb': {
+    background: '$gray500',
+    borderRadius: '$md',
+    border: '4px solid $gray800',
+  },
 })
 
 export const TimePickerHeader = styled(Text, {
