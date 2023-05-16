@@ -7,6 +7,7 @@ import dayjs from 'dayjs'
 import { globalStyles } from '../styles/global'
 
 import { queryClient } from '@/lib/react-query'
+import { DefaultSeo } from 'next-seo'
 
 globalStyles()
 
@@ -19,6 +20,15 @@ export default function App({
   return (
     <QueryClientProvider client={queryClient}>
       <SessionProvider session={session}>
+        <DefaultSeo
+          openGraph={{
+            type: 'website',
+            locale: 'us',
+            url: 'https://www.next-call.xunito.com.br',
+            siteName: 'Next Call',
+          }}
+        />
+
         <Component {...pageProps} />
       </SessionProvider>
     </QueryClientProvider>
