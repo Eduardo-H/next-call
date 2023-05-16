@@ -4,6 +4,9 @@ import { CalendarBlank, Clock } from 'phosphor-react'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import dayjs from 'dayjs'
+import { api } from '@/lib/axios'
+import { useRouter } from 'next/router'
 
 const confirmFormSchema = z.object({
   name: z.string().min(3, { message: 'Name needs at least 3 characters' }),
@@ -13,7 +16,15 @@ const confirmFormSchema = z.object({
 
 type ConfirmFormData = z.infer<typeof confirmFormSchema>
 
-export function ConfirmStep() {
+interface ConfirmStepProps {
+  schedulingDate: Date
+  onGoBackToCalendarStep: () => void
+}
+
+export function ConfirmStep({
+  schedulingDate,
+  onGoBackToCalendarStep,
+}: ConfirmStepProps) {
   const {
     register,
     handleSubmit,
@@ -22,8 +33,23 @@ export function ConfirmStep() {
     resolver: zodResolver(confirmFormSchema),
   })
 
+  const router = useRouter()
+  const username = String(router.query.username)
+
+  const describedDate = dayjs(schedulingDate).format('MMM Do YYYY')
+  const describedTime = dayjs(schedulingDate).format('h:mm A')
+
   async function handleConfirmScheduling(data: ConfirmFormData) {
-    console.log(data)
+    const { name, email, observations } = data
+
+    await api.post(`/users/${username}/schedule`, {
+      name,
+      email,
+      observations,
+      date: schedulingDate,
+    })
+
+    onGoBackToCalendarStep()
   }
 
   return (
@@ -31,12 +57,12 @@ export function ConfirmStep() {
       <FormHeader>
         <Text>
           <CalendarBlank />
-          May 11th 2023
+          {describedDate}
         </Text>
 
         <Text>
           <Clock />
-          9AM
+          {describedTime}
         </Text>
       </FormHeader>
 
@@ -64,7 +90,11 @@ export function ConfirmStep() {
       </label>
 
       <FormActions>
-        <Button type="button" variant="tertiary">
+        <Button
+          type="button"
+          variant="tertiary"
+          onClick={onGoBackToCalendarStep}
+        >
           Cancel
         </Button>
         <Button type="submit" disabled={isSubmitting}>
