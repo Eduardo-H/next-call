@@ -5,7 +5,7 @@ import {
   MultiStep,
   Text,
   TextInput,
-} from '@ignite-ui/react'
+} from '@xunito-ui/react'
 import { ArrowRight } from 'phosphor-react'
 import { Controller, useFieldArray, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'

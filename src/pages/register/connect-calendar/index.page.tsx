@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { signIn, useSession } from 'next-auth/react'
 import { ArrowRight, Check } from 'phosphor-react'
-import { Button, Heading, MultiStep, Text } from '@ignite-ui/react'
+import { Button, Heading, MultiStep, Text } from '@xunito-ui/react'
 
 import { AuthError, ConnectBox, ConnectItem } from './styles'
 import { Container, Header } from '../styles'

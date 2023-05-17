@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Heading, Text } from '@ignite-ui/react'
+import { Heading, Text } from '@xunito-ui/react'
 
 import { Container, Hero, Preview } from './styles'
 

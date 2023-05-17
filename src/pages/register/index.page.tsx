@@ -4,7 +4,7 @@ import { ArrowRight } from 'phosphor-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { Button, Heading, MultiStep, Text, TextInput } from '@ignite-ui/react'
+import { Button, Heading, MultiStep, Text, TextInput } from '@xunito-ui/react'
 
 import { Container, Form, FormError, Header } from './styles'
 import { api } from '@/lib/axios'

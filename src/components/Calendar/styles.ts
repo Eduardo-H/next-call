@@ -1,4 +1,4 @@
-import { Text, styled } from '@ignite-ui/react'
+import { Text, styled } from '@xunito-ui/react'
 
 export const CalendarContainer = styled('div', {
   display: 'flex',

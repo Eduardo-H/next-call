@@ -1,4 +1,4 @@
-import { Box, Text, styled } from '@ignite-ui/react'
+import { Box, Text, styled } from '@xunito-ui/react'
 
 export const Container = styled(Box, {
   margin: '$6 auto 0',

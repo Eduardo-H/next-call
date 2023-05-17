@@ -1,4 +1,4 @@
-import { Avatar, Heading, Text } from '@ignite-ui/react'
+import { Avatar, Heading, Text } from '@xunito-ui/react'
 import { Container, UserHeader } from './styles'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { prisma } from '@/lib/prisma'

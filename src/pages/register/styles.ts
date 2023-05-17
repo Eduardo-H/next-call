@@ -1,4 +1,4 @@
-import { Box, Heading, Text, styled } from '@ignite-ui/react'
+import { Box, Heading, Text, styled } from '@xunito-ui/react'
 
 export const Container = styled('main', {
   maxWidth: 572,

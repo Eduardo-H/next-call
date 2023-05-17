@@ -11,7 +11,7 @@ import {
   MultiStep,
   Text,
   TextArea,
-} from '@ignite-ui/react'
+} from '@xunito-ui/react'
 
 import { buildNextAuthOptions } from '../../api/auth/[...nextauth].api'
 
