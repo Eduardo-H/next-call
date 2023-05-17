@@ -630,10 +630,10 @@
     "@typescript-eslint/types" "5.59.2"
     eslint-visitor-keys "^3.3.0"
 
-"@xunito-ui/react@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@xunito-ui/react/-/react-2.2.0.tgz#db7308fa5fb0711f68628ebb8e9c8eee83d1da2c"
-  integrity sha512-N2FaaA+BP9vIw24aePCXpJru1OD1xHiLwwUse8XFsP/1mGTSo/sgpRwkMXbYUYUYtR8jdJ3+nTcgKhVs2d+unQ==
+"@xunito-ui/react@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@xunito-ui/react/-/react-2.2.1.tgz#2dff085d02e5c9c4c42f5da80c4a7ff02200531a"
+  integrity sha512-Orn6ZPMkCoIFqexiqrgifwK2JuIK4lvlDN87Fw1yKVHgjTya+6Nk/oVlK55kSzgxCjZaeFmD2EiCxicASiwf0g==
   dependencies:
     "@radix-ui/react-avatar" "^1.0.2"
     "@radix-ui/react-checkbox" "^1.0.3"
