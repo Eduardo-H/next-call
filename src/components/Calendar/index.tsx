@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { CaretLeft, CaretRight } from 'phosphor-react'
+import * as RadixTooltip from '@radix-ui/react-tooltip'
 import dayjs from 'dayjs'
 
 import { getWeekDays } from '@/utils/get-week-days'
@@ -15,6 +16,7 @@ import {
 import { useQuery } from '@tanstack/react-query'
 import { api } from '@/lib/axios'
 import { useRouter } from 'next/router'
+import { Tooltip } from '@xunito-ui/react'
 
 interface CalendarWeek {
   week: number
@@ -173,20 +175,34 @@ export function Calendar({ selectedDate, onDateSelected }: CalendarProps) {
           </tr>
         </thead>
         <tbody>
-          {calendarWeeks.map(({ week, days }) => (
-            <tr key={week}>
-              {days.map(({ date, disabled }) => (
-                <td key={date.toString()}>
-                  <CalendarDay
-                    onClick={() => onDateSelected(date.toDate())}
-                    disabled={disabled}
-                  >
-                    {date.get('date')}
-                  </CalendarDay>
-                </td>
-              ))}
-            </tr>
-          ))}
+          <RadixTooltip.Provider>
+            {calendarWeeks.map(({ week, days }) => (
+              <tr key={week}>
+                {days.map(({ date, disabled }) => (
+                  <td key={date.toString()}>
+                    <RadixTooltip.Root>
+                      <RadixTooltip.Trigger asChild>
+                        <CalendarDay
+                          onClick={() => onDateSelected(date.toDate())}
+                          disabled={disabled}
+                        >
+                          {date.get('date')}
+                        </CalendarDay>
+                      </RadixTooltip.Trigger>
+
+                      <RadixTooltip.Portal>
+                        <Tooltip
+                          text={`${date.format('MMM Do')} - ${
+                            disabled ? 'Unavailable' : 'Available'
+                          }`}
+                        />
+                      </RadixTooltip.Portal>
+                    </RadixTooltip.Root>
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </RadixTooltip.Provider>
         </tbody>
       </CalendarBody>
     </CalendarContainer>
