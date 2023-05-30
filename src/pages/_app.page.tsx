@@ -1,13 +1,13 @@
 import type { AppProps } from 'next/app'
 import { SessionProvider } from 'next-auth/react'
+import { DefaultSeo } from 'next-seo'
 import { QueryClientProvider } from '@tanstack/react-query'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import dayjs from 'dayjs'
 
-import { globalStyles } from '../styles/global'
-
 import { queryClient } from '@/lib/react-query'
-import { DefaultSeo } from 'next-seo'
+
+import { globalStyles } from '../styles/global'
 
 globalStyles()
 
